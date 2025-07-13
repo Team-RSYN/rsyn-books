@@ -1,0 +1,50 @@
+- name: Anjana Jadon
+  photo: /assets/images/authors/anjana_jadon.jpg
+  bio: Short bio not yet provided.
+  books:
+  - RISER Question Bank on Botany
+  - RISER Question Bank on Zoology
+  - Environment and Sustainability
+- name: Raman Singh
+  photo: /assets/images/authors/raman_singh.jpg
+  bio: Short bio not yet provided.
+  books:
+  - Contemporary Advances in Science & Technology 8
+  - Exploring Innovation in Technology and Society
+- name: Vikash thada
+  photo: /assets/images/authors/vikash_thada.jpg
+  bio: Short bio not yet provided.
+  books:
+  - 'Artificial Intelligence in Higher Education Institutions: Transforming Teaching,
+    Learning, and Research'
+- name: Kuldeep Singh
+  photo: /assets/images/authors/kuldeep_singh.jpg
+  bio: Short bio not yet provided.
+  books:
+  - Chemical Techniques in Ancient India
+  - RISER QUESTION BANK on Green Chemistry & Technology
+  - Chemical Techniques in Ancient India
+  - RISER QUESTION BANK ON HETEROCYCLIC CHEMISTRY
+  - High Energy Materials and Biofuels
+  - Research Methodology for Undergraduate Students
+  - 'Water Chemistry: Principles, Analysis, and Environmental Applications'
+- name: Vikash Thada
+  photo: /assets/images/authors/vikash_thada.jpg
+  bio: Short bio not yet provided.
+  books:
+  - PYTHON PROGRAMMING SIMPLIFIED
+- name: Dr. Sulaxna Sharma
+  photo: /assets/images/authors/dr._sulaxna_sharma.jpg
+  bio: Short bio not yet provided.
+  books:
+  - 'Hands-on chemistry: Lab insights in engineering chemistry'
+- name: Bhawna Pareek
+  photo: /assets/images/authors/bhawna_pareek.jpg
+  bio: Short bio not yet provided.
+  books:
+  - Recent Advances in Applied Sciences (ICRAAS-2025)
+- name: Aarti Dwivedi
+  photo: /assets/images/authors/aarti_dwivedi.jpg
+  bio: Short bio not yet provided.
+  books:
+  - Selected Experiments in Chemistry
