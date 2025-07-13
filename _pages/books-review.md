@@ -1,7 +1,7 @@
 ---
 layout: book-shelf
 title: bookshelf
-permalink: /books/
+permalink: /book-reviews/
 nav: false
 collection: books
 ---
