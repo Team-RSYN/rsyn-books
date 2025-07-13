@@ -1,56 +1,102 @@
-<!doctype html>
-<html lang="{{ site.lang }}">
-  <!-- Head -->
-  <head>
-    {% if page.redirect %}
-      {% if page.redirect == true %}
-        {% assign redirect = site.baseurl | append: '/' %}
-      {% elsif page.redirect contains '://' %}
-        {% assign redirect = page.redirect %}
-      {% else %}
-        {% assign redirect = page.redirect | relative_url %}
-      {% endif %}
-      <meta http-equiv="refresh" content="3; url={{ redirect }}">
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description }}">
+  <meta name="keywords" content="{{ site.keywords | join: ', ' }}">
+  <meta name="author" content="{{ site.author }}">
+  <title>{{ page.title | default: site.title }}</title>
+
+  <!-- SEO Tags -->
+  {% seo %}
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ site.baseurl }}/assets/img/favicon.ico" type="image/x-icon">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+
+  <!-- Google Analytics -->
+  {% if site.google_analytics %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="{{ site.baseurl }}/" class="navbar-brand">{{ site.title }}</a>
+      <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+      <ul class="navbar-nav">
+        <li><a href="{{ site.baseurl }}/">Home</a></li>
+        <li><a href="{{ site.baseurl }}/about/">About</a></li>
+        <li><a href="{{ site.baseurl }}/publish/">Publish</a></li>
+        <li><a href="{{ site.baseurl }}/resources/">Resources</a></li>
+        <li><a href="{{ site.baseurl }}/faq/">FAQ</a></li>
+        <li><a href="{{ site.baseurl }}/contact/">Contact</a></li>
+      </ul>
+      <div class="social-icons">
+        {% if site.social.linkedin %}<a href="{{ site.social.linkedin }}" target="_blank">🔗</a>{% endif %}
+        {% if site.social.github %}<a href="{{ site.social.github }}" target="_blank">🐙</a>{% endif %}
+        {% if site.social.twitter %}<a href="{{ site.social.twitter }}" target="_blank">🐦</a>{% endif %}
+      </div>
+    </nav>
+  </header>
+
+  <!-- Breadcrumbs -->
+  {% if page.url != "/" %}
+  <nav class="breadcrumbs">
+    <a href="{{ site.baseurl }}/">Home</a> /
+    {% if page.categories %}
+      {% for cat in page.categories %}
+        <a href="{{ site.baseurl }}/{{ cat }}/">{{ cat | capitalize }}</a> /
+      {% endfor %}
     {% endif %}
-    {% include head.liquid %}
-  </head>
+    <span>{{ page.title }}</span>
+  </nav>
+  {% endif %}
 
-  <!-- Body -->
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-    <!-- Header -->
-    {% include header.liquid %}
-
-    <!-- Content -->
-    <div class="container mt-5" role="main">
-      {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
-          <div class="row">
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
+  <!-- Main Content -->
+  <main class="container">
+    {% if page.featured_books %}
+    <section class="featured-books">
+      <h2>Featured Books</h2>
+      <div class="book-panel-grid">
+        {% for book in page.featured_books %}
+          <div class="book-panel">
+            <img src="{{ book.cover }}" alt="Cover for {{ book.title }}">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.description }}</p>
+            <a href="{{ book.url }}" class="btn">More Info</a>
           </div>
-        {% else %}
-          <div class="row">
-            <!-- sidebar, which will move to the top on a small screen -->
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-            <!-- main content area -->
-            <div class="col-sm-9">{{ content }}</div>
-          </div>
-        {% endif %}
-      {% else %}
-        {{ content }}
-      {% endif %}
-    </div>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
 
-    <!-- Footer -->
-    {% include footer.liquid %}
+    {{ content }}
+  </main>
 
-    <!-- JavaScripts -->
-    {% include scripts.liquid %}
-  </body>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-text">{{ site.footer_text }}</div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ site.baseurl }}/assets/js/main.js"></script>
+  <script>
+    // Mobile nav toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+      document.querySelector('.navbar-nav').classList.toggle('open');
+    });
+  </script>
+</body>
 </html>
