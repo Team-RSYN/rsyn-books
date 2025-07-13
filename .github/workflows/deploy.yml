@@ -66,29 +66,33 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
           bundler-cache: false
 
-  - name: Unfreeze Bundler & Install gems
-  run: |
-    bundle config set frozen false
-    bundle install
+      - name: Unfreeze Bundler & Install gems
+        run: |
+          bundle config set frozen false
+          bundle install
 
-- name: Commit updated Gemfile.lock
-  run: |
-    git config user.name "github-actions[bot]"
-    git config user.email "github-actions[bot]@users.noreply.github.com"
-    git add Gemfile.lock
-    git diff --cached --quiet || git commit -m "Update Gemfile.lock for added gems"
-    git push
+      - name: Commit updated Gemfile.lock
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add Gemfile.lock
+          git diff --cached --quiet || git commit -m "Update Gemfile.lock for added gems"
+          git push
+
+      # ... your remaining steps go here ...
+
 
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
