@@ -1,0 +1,115 @@
+# _config.yml for RSYN BOOKS based on al-folio
+
+# ----------------------------------------------------------------------------
+# Site Settings
+# ----------------------------------------------------------------------------
+title: "RSYN BOOKS"
+description: "Academic book publisher"
+url: "https://rsyn-org.github.io"
+baseurl: "/rsyn-books" # only if not using a custom domain
+author: "RSYN RESEARCH"
+email: "info@rsyn.org"
+lang: en
+icon: "📚"
+
+# ----------------------------------------------------------------------------
+# Theme and Layout
+# ----------------------------------------------------------------------------
+navbar_fixed: true
+footer_fixed: true
+search_enabled: true
+socials_in_search: true
+posts_in_search: true
+bib_search: false
+back_to_top: true
+max_width: 930px
+
+# ----------------------------------------------------------------------------
+# Collections
+# ----------------------------------------------------------------------------
+collections:
+  books:
+    output: true
+    permalink: /books/:path/
+  book-reviews:
+    output: true
+    permalink: /book-reviews/:path/
+  authors:
+    output: true
+    permalink: /authors/:path/
+
+# ----------------------------------------------------------------------------
+# Analytics and Verification
+# ----------------------------------------------------------------------------
+google_analytics: "G-8895JZJG92"
+google_site_verification: "google7b2a23368dbf1ef3"
+bing_site_verification: ""
+
+# ----------------------------------------------------------------------------
+# SEO, Sitemap, Feed
+# ----------------------------------------------------------------------------
+serve_og_meta: true
+serve_schema_org: true
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# ----------------------------------------------------------------------------
+# Markdown
+# ----------------------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+      start_line: 1
+
+# ----------------------------------------------------------------------------
+# Footer
+#   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.<br>
+  Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
+# 
+# ----------------------------------------------------------------------------
+footer_text: >
+  Powered by <a href="https://rsynresearch.com/" target="_blank">RSYN RESEARCH LLP</a>.
+
+# ----------------------------------------------------------------------------
+# Features
+# ----------------------------------------------------------------------------
+enable_darkmode: true
+enable_math: false
+enable_navbar_social: false
+enable_project_categories: false
+enable_progressbar: true
+enable_masonry: false
+enable_tooltips: false
+
+# ----------------------------------------------------------------------------
+# Exclude Unwanted Files
+# ----------------------------------------------------------------------------
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - vendor/
+
+# ----------------------------------------------------------------------------
+# Sitemap Control
+# ----------------------------------------------------------------------------
+defaults:
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
+
+# ----------------------------------------------------------------------------
+# Additional Plugin Configurations (if needed later)
+# ----------------------------------------------------------------------------
+# Add more plugin configs below if needed
